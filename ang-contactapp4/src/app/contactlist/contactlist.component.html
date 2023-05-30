@@ -1,0 +1,18 @@
+<!--formControl-olion käyttö vaatii ReactiveFormsModulen käyttöönoton päämoduulissa
+Lomakkeen formControl on bindattu luokan nameFilter -muuttujaan-->
+<p>Haku: <input #haeForm="ngForm" type="text" placeholder="Haettava kontakti" [formControl]="nameFilter">
+  <!-- selectin ei tarvitse olla form-tagin sisällä koska meillä ei ole lähetysnappia
+  kyseessä ei ole form, vaan pelkkä elementti jossa on event-binding onSelect -metodiin-->   
+  Kriteeri: <select (change)="onSelect($any($event.target).value)">
+      <option *ngFor="let f of fields" value={{f}}>{{f}}</option>
+    </select>
+  </p>
+<!-- *ngFor on iteraatiodirektiivi joka toistaa sitä elementtiä
+jonka sisällä se on. Filtteri erotetaan pystyviivalla. Sen osat ovat
+filtterin nimi:kenttä jonka perusteella filtteröidään:hakuarvo eli käyttäjän syöte. -->
+<div *ngFor="let c of contacts | searchfilter:field:filterCriteria">
+  <div class="contact">
+    <p>{{ c.name }} - {{ c.email }}</p>
+  </div>
+
+</div>

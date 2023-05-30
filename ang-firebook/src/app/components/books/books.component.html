@@ -1,0 +1,36 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">Genres</th>
+      <th scope="col">Price</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="books">
+    <tr *ngFor="let book of books; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ book.name }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.genre }}</td>
+      <td>{{ book.price }}</td>
+      <td>
+        <i
+          class="bi bi-pencil-square"
+          style="color: green"
+          (click)="editModal(book)"
+        ></i>
+      </td>
+      <td>
+        <i
+          class="bi bi-trash"
+          (click)="deleteBook(book)"
+          style="color: red"
+        ></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
