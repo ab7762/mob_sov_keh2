@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../contact.service';
 
 import { Contact } from '../contact';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-contactedit',
@@ -12,11 +13,16 @@ export class ContacteditComponent implements OnInit {
   // Propertyjen alustukset tehdään tässä esittelyn yhteydessä
   contacts: Contact[] = []; // komponentin kontaktitaulukko
   editmode: boolean = false; // muokkauslomake oletuksena ei näkyvissä
+  password: string = '';
+  email: string = '';
   name = '';
-  email = '';
+  mail = '';
   id: number = 0;
   // Service otetaan käyttöön komponentin konstruktorin argumenttina (Dependency injection)
-  constructor(private contactService: ContactService) {}
+  constructor(
+    private contactService: ContactService,
+    public authService: AuthService
+  ) {}
 
   // tilataan subscribe-metodilla observable servicen getContacts -metodista
   // subscriben argumenttina on callback jolla kontaktitaulukko saadaan
@@ -75,5 +81,24 @@ export class ContacteditComponent implements OnInit {
         .deleteContact(c)
         .then(() => console.log('delete successful'));
     }
+  }
+
+  signUp() {
+    this.authService.signUp(this.email, this.password);
+    this.email = '';
+    this.password = '';
+  }
+
+  signIn() {
+    this.authService.signIn(this.email, this.password);
+    this.email = '';
+    this.password = '';
+  }
+
+  signOut() {
+    this.authService
+      .signOut()
+      .then(() => (this.authService.user = null))
+      .catch((e) => console.log(e.message));
   }
 }

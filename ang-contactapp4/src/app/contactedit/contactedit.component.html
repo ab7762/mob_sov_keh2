@@ -1,3 +1,17 @@
+<div *ngIf="!authService.user">
+  <p>Kirjaudu sisään niin voit muokata kontakteja.</p>
+  <input type="text" [(ngModel)]="email" placeholder="email" />
+  <input type="password" [(ngModel)]="password" placeholder="password" />
+  <br />
+  <!--rekisteröitymisnappi-->
+  <button (click)="signUp()">Sign Up</button>
+  <!--Kirjautumisnappi-->
+  <button (click)="signIn()">Login</button>
+</div>
+
+<!--Logout-nappi näkyy vain kirjautuneille-->
+<button (click)="signOut()" *ngIf="authService.user">Logout</button>
+
 <!-- Muokkaa-nappia painettaessa avautuu muokkauslomake-->
 <div *ngIf="editmode === true">
   <div class="topmargin">
@@ -5,7 +19,7 @@
       <label>Nimi:</label><br />
       <input type="text" name="name" [(ngModel)]="name" ngModel /><br />
       <label>Email:</label><br />
-      <input type="text" name="email" [(ngModel)]="email" ngModel /><br />
+      <input type="text" name="email" [(ngModel)]="mail" ngModel /><br />
       <input type="hidden" name="id" [(ngModel)]="id" ngModel />
       <button class="topmargin" type="submit">Lähetä</button>
     </form>
@@ -14,13 +28,15 @@
 
 <!-- *ngFor on iteraatiodirektiivi joka toistaa sitä elementtiä
 jonka sisällä se on -->
-<div *ngFor="let c of contacts">
-  <div class="contact">
-    <p>
-      {{ c.name }} - {{ c.email }} <a (click)="edit(c)">Muokkaa</a>&nbsp;<a
-        (click)="remove(c)"
-        >Poista</a
-      >
-    </p>
+<div *ngIf="authService.user">
+  <div *ngFor="let c of contacts">
+    <div class="contact">
+      <p>
+        {{ c.name }} - {{ c.email }} <a (click)="edit(c)">Muokkaa</a>&nbsp;<a
+          (click)="remove(c)"
+          >Poista</a
+        >
+      </p>
+    </div>
   </div>
 </div>
