@@ -1,0 +1,44 @@
+.ilmoitus {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ilmoitus2 {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13;
+}
+
+button {
+  font-size: 12;
+  font-weight: bold;
+}
+
+.otsikko {
+  text-align: center;
+  margin-top: 1%;
+  font-size: 28;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  box-shadow: 2px 8px 3px 4px;
+}
+.laatikko {
+  border: solid black 1px;
+}
+.tuote_input {
+  font-weight: bold;
+}
+.button_lisaa {
+  background-color: beige;
+}
+.lista {
+  overflow-x: scroll;
+}
+
+.nimi {
+  font-size: 16;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5;
+  margin-left: 3%;
+}

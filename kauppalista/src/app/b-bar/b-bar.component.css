@@ -1,0 +1,17 @@
+TabContentItem.first-tabcontent {
+  background-color: seashell;
+  color: olive;
+}
+TabContentItem.second-tabcontent {
+  background-color: slategray;
+  color: aquamarine;
+}
+TabContentItem.third-tabcontent {
+  background-color: blueviolet;
+  color: antiquewhite;
+}
+
+label {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}

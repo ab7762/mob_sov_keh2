@@ -1,0 +1,90 @@
+<!--Sovelluksen kauppalistasivu. Näytetään asioita sovelluksen tilan perusteella.
+Aluksi käyttäjää ohjataan kirjautumaan sisään ja liittymään listalle tai perustamaan oma lista.-->
+<StackLayout>
+  <ns-top-bar></ns-top-bar>
+  <Label
+    *ngIf="!this.authService.isLogged"
+    class="ilmoitus"
+    marginLeft="2%"
+    marginTop="2%"
+    text="Kirjaudu sisään tai luo käyttäjätunnus yläpalkista."
+  ></Label>
+
+  <Label
+    *ngIf="this.authService.isLogged && this.authService.listat < 1"
+    class="ilmoitus2"
+    marginLeft="2%"
+    marginTop="2%"
+    text="Luo kauppalista tai liity olemassa olevaan listaan."
+  ></Label>
+  <stackLayout
+    *ngIf="this.authService.isLogged && this.authService.listat < 1"
+    orientation="vertical"
+    marginTop="5%"
+    marginLeft="3%"
+  >
+    <Button
+      (tap)="luoLista(this.authService.user.email)"
+      width="40%"
+      height="10%"
+      text="Luo kauppalista"
+      class="-primary -rounded-lg"
+    ></Button>
+    <Button
+      (tap)="liityListalle()"
+      marginTop="5%"
+      width="40%"
+      height="10%"
+      text="Liity kauppalistaan"
+      class="-primary -rounded-lg"
+    ></Button>
+  </stackLayout>
+  <stackLayout
+    *ngIf="this.authService.user && this.authService.listat.length > 0"
+  >
+    <Label class="otsikko" text=" {{ this.listat[0].nimi }} "></Label>
+
+    <stackLayout marginTop="5%" marginLeft="5%" orientation="horizontal">
+      <Label class="tuote_input" text="Tuote:"></Label>
+      <TextField
+        hint="Kirjoita tuote tähän"
+        (textChange)="onTextChange($event)"
+        #myInput
+        secure="false"
+        returnKeyType="done"
+        (returnPress)="onReturnPress($event)"
+        autocorrect="false"
+        maxLength="50"
+        (focus)="onFocus($event)"
+        (blur)="onBlur($event)"
+        color="black"
+        class="laatikko"
+      >
+      </TextField>
+    </stackLayout>
+    <StackLayout marginLeft="3%" orientation="horizontal">
+      <Button
+        class="button_lisaa"
+        (tap)="lisaaListaan(myInput)"
+        width="25%"
+        text="Lisää"
+      ></Button>
+    </StackLayout>
+  </stackLayout>
+  <ScrollView>
+    <StackLayout
+      class="lista"
+      *ngIf="this.authService.user && this.authService.listat.length > 0"
+    >
+      <ng-container *ngFor="let alidokumentti of this.listat[0].alidokumentit">
+        <StackLayout orientation="horizontal">
+          <Label
+            (tap)="poista(alidokumentti.id)"
+            [text]="alidokumentti.nimi"
+            class="nimi"
+          ></Label>
+        </StackLayout>
+      </ng-container>
+    </StackLayout>
+  </ScrollView>
+</StackLayout>

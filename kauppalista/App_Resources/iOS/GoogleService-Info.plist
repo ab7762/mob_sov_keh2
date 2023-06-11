@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>416336378687-0d3i99m08geig4jpah73irj2iq0ior2j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.416336378687-0d3i99m08geig4jpah73irj2iq0ior2j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA0JTXbSkVI8W5BHrD8wo5FN9PJJkuUzvA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>416336378687</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.poko</string>
+	<key>PROJECT_ID</key>
+	<string>kauppalista-e7622</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kauppalista-e7622.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:416336378687:ios:827989458d40870663f18a</string>
+</dict>
+</plist>

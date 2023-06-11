@@ -1,0 +1,18 @@
+<!--Käyttäjä-sivu. Komponentilla näytetään käyttäjän tunnus sekä mahdollinen kauppalista
+johon on liitytty. Myös button uloskirjautumiksta varten on tällä sivulla.-->
+<ns-top-bar></ns-top-bar>
+
+<StackLayout
+  *ngIf="this.authService.user.email"
+  class="container"
+  horizontalAlignment="center"
+  verticalAlignment="center"
+>
+  <label class="email-label" text="{{ this.authService.user.email }}"></label>
+  <label
+    *ngIf="this.authService.listat[0].nimi"
+    class="list-label"
+    text="Kauppalista: {{ this.listat[0].nimi }}"
+  ></label>
+  <Button (tap)="logOut()" class="logout-button" text="Kirjaudu ulos"></Button>
+</StackLayout>

@@ -1,0 +1,10 @@
+<!--Top-bar komponentilla on ikonit ja niissä linkit käyttäjän luomiseen
+sekä sisäänkirjautumiseen. Myös Sovelluksen otsikko on tässä komponentissa.-->
+<ActionBar class="otsikko" title="Kauppalista">
+  <ActionItem *ngIf="!this.authService.user.email" (tap)="signUp()"
+    ><Button text="&#xf234;" class="fas"></Button
+  ></ActionItem>
+  <ActionItem *ngIf="!this.authService.user.email" (tap)="logIn()"
+    ><Button text="&#xf2f6;" class="fas"></Button
+  ></ActionItem>
+</ActionBar>

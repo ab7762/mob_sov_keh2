@@ -1,0 +1,36 @@
+<!-- Nativescriptin bottomNavigation plugin. Linkit reititykseen ja tomii navina.-->
+<MDBottomNavigation>
+  <MDTabStrip>
+    <MDTabStripItem [nsRouterLink]="['/lista']" pageTransition="slide">
+      <Label text="Kauppalista"></Label>
+      <Image src="font://&#xf328;" class="fas"></Image>
+    </MDTabStripItem>
+    <MDTabStripItem
+      [nsRouterLink]="['/kayttaja']"
+      pageTransition="slide"
+      class="special"
+    >
+      <Label text="Käyttäjä"></Label>
+      <Image src="font://&#xf007;" class="fas"></Image>
+    </MDTabStripItem>
+    <MDTabStripItem
+      [nsRouterLink]="['/reseptit']"
+      pageTransition="slide"
+      class="special"
+    >
+      <Label text="Reseptit"></Label>
+      <Image src="font://&#xf2e7;" class="fas"></Image>
+    </MDTabStripItem>
+  </MDTabStrip>
+
+  <!--Pluginin oma view ei ole käytössä, vaan tein omat linkit ja komponentit.-->
+  <MDTabContentItem>
+    <GridLayout> </GridLayout>
+  </MDTabContentItem>
+  <MDTabContentItem>
+    <GridLayout> </GridLayout>
+  </MDTabContentItem>
+  <MDTabContentItem>
+    <GridLayout> </GridLayout>
+  </MDTabContentItem>
+</MDBottomNavigation>

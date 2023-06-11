@@ -1,0 +1,49 @@
+<!--Modal, jossa luodaan uusi käyttäjä. Avataan top-barista.-->
+<stackLayout>
+  <Label class="otsikko" text="Luo uusi käyttäjä"></Label>
+
+  <stackLayout marginTop="5%" marginLeft="5%" orientation="horizontal">
+    <Label text="Käyttäjätunnus:"></Label>
+    <TextField
+      hint="Anna tunnus"
+      (textChange)="onTextChange($event)"
+      secure="false"
+      returnKeyType="done"
+      (returnPress)="onReturnPress($event)"
+      autocorrect="false"
+      maxLength="50"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+      color="orangered"
+      class="laatikko"
+    >
+    </TextField>
+  </stackLayout>
+
+  <stackLayout marginTop="2%" marginLeft="5%" orientation="horizontal">
+    <Label text="Salasana:           "></Label>
+    <TextField
+      hint="Anna salasana"
+      (textChange)="onTextChangeSalasana($event)"
+      secure="false"
+      returnKeyType="done"
+      (returnPress)="onReturnPress($event)"
+      autocorrect="false"
+      maxLength="50"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+      color="orangered"
+      class="laatikko"
+    >
+    </TextField>
+  </stackLayout>
+  <stackLayout orientation="horizontal" marginTop="2%" marginLeft="3%">
+    <Button
+      (tap)="onSubmit()"
+      width="25%"
+      text="Lähetä"
+      class="-primary -rounded-lg"
+    ></Button>
+  </stackLayout>
+  <Button marginTop="10%" text="Sulje" (tap)="onCloseModal()"></Button>
+</stackLayout>

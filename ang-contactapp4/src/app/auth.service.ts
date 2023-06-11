@@ -21,13 +21,13 @@ export class AuthService {
   */
   signUp(email: string, password: string) {
     return createUserWithEmailAndPassword(this.auth, email, password)
-      .then((res) => {
-        console.log('Successfully signed up!', res);
-        this.user = res.user;
-      })
-      .catch((error) => {
-        console.log('Something is wrong:', error.message);
-      });
+        .then((res) => {
+          console.log('Successfully signed up!', res);
+          this.user = res.user;
+        })
+        .catch((error) => {
+          console.log('Something is wrong:', error.message);
+        });
   }
 
   /* Sign in

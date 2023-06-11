@@ -1,0 +1,25 @@
+.modal-container {
+  background-color: white;
+  padding: 20;
+}
+
+.modal-title {
+  font-size: 20;
+  font-weight: bold;
+}
+
+.laatikko {
+  border: solid black 1px;
+}
+
+.otsikko {
+  text-align: center;
+  margin-top: 3%;
+  font-size: 28;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+button {
+  font-size: 12;
+}
